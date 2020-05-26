@@ -1,0 +1,40 @@
+<div class="card border-dark mb-3">
+    <div class="card-header">{{title}}</div>
+    <div class="card bg-white text-dark">
+        <div class="card-body">
+            <form>
+                <div class="form-group row">
+                    <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" [(ngModel)]="notas.nombre" name="nombre">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="prioridad" class="col-form-label col-sm-2">Prioridad</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="notas.prioridad" name="prioridad">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="fechaVencimiento" class="col-form-label col-sm-2">Fecha de Vencimiento</label>
+                    <div class="col-sm-6">
+                       <input type="text" class="form-control" [(ngModel)]="notas.fechaVencimiento"     name="fechaVencimiento">
+                    </div>
+                </div>
+           
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <button class="btn btn-primary" role="button" (click)='create()'
+                            *ngIf="!notas.id else elseBlock">Crear</button>
+                        <ng-template #elseBlock>
+                            <button class="btn btn-primary" role="button" (click)='update()'
+                                *ngIf="notas.id else elseBlock">Actualizar</button>
+                        </ng-template>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
